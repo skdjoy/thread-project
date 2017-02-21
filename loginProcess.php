@@ -14,7 +14,7 @@
 		$pass = $mysqli->escape_string($_POST['pass']);
 	    $user = $result->fetch_assoc();
 
-	    if ( $user['password']==$pass ) {
+	    if (password_verify($pass,$user['password'])){
 	        
 	        $_SESSION['email'] = $user['email'];
 	        $_SESSION['username'] = $user['username'];
@@ -24,7 +24,7 @@
 	        header("location: index.php");
 	    }
 	    else {
-	        $_SESSION['emessage'] = "You have entered password ".$user['password']." and username ".$user['username'];
+	        $_SESSION['emessage'] = "You have entered password ".$pass." and username ".$user['username'];
 	        header("location: error.php");
 	    }
 	}
