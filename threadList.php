@@ -9,6 +9,8 @@
 		echo '<div class="panel-heading"><a href="thread.php?tid=' . $thread['id'] . '">'.$thread['title'].'</a></div>';
 		echo '<div class="panel-body">';
 		echo '<p>Posted by '.$thread['username'].' on '.$thread['post_date'].'</p>';
+		echo '<form style="float:left" action="edit.php" method="POST"><input type="submit" id="btn" name="edit" value="Edit"><input type="hidden" name="threadId" value="'.$thread['id'].'"></form>';
+		echo '<form action="delete.php" method="POST"><input type="submit" id="btn" name="delete" value="Delete"><input type="hidden" name="threadId" value="'.$thread['id'].'"></form>';
 		echo '</div></div>';
 
 		 //print_r($thread);
